@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    body {background-color: rgb(36, 37, 38);}
+    label {color: antiquewhite;}
+    .parent {
+        margin: 2.5rem;
+        text-align: center;
+    }
+    .child {
+        display: inline-block;
+        padding-left: 1%;
+        padding-right: 1%;
+        vertical-align: middle;
+    }
+</style>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+attribute vec4 vColor;
+
+varying vec4 fColor;
+
+void main()
+{
+    gl_Position = vPosition;
+    fColor = vColor;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+
+varying vec4 fColor;
+void main()
+{
+    gl_FragColor = fColor;
+}
+</script>
+
+<body>
+<div class = "parent">
+    <div class = "child">
+        <div class="app">
+            <div class="controls">
+                <div>
+                    <div>
+                        <label>
+                            <input type="radio" name="action-select" id="add-shape-rectangle" value="add-shape-rectangle">
+                            Add a rectangle
+                        </label>
+                        <label>
+                            <input type="radio" name="action-select" id="add-shape-triangle" value="add-shape-triangle">
+                            Add a triangle
+                        </label>
+                        <label>
+                            <input type="radio" name="action-select" id="draw-polygon" value="draw-polygon">
+                            Draw a polygon
+                        </label>
+                        <button id="end-polygon" class="perform-render"> End Polygon </button>
+                    </div>
+                    <br>
+                    <div>
+                        <label>
+                            <input type="radio" name="action-select" id="select-polygons" value="select-polygons">
+                            Select polygons
+                        </label>
+                        <label>
+                            <input type="radio" name="action-select" id="move-shape" value="move-shape">
+                            Move shape
+                        </label>
+                        <label>
+                            <input type="radio" name="action-select" id="delete-shape" value="delete-shape">
+                            Delete shape
+                        </label>
+                    </div>
+                    <br>
+                    <div>
+                        <label>
+                            <input type="text" name="rotation-angle" id="rotation-angle" placeholder="Angle(Euler)">
+                        </label>
+
+                        <button id="rotate-left" class="perform-render"> <-- </button>
+                        <button id="rotate-right" class="perform-render"> --> </button>
+                    </div>
+                    <br>
+                    <select id = "color-menu" size = "8">
+                        <option value = "0">Black</option>
+                        <option value = "1">Red</option>
+                        <option value = "2">Yellow</option>
+                        <option value = "3">Green</option>
+                        <option value = "4">Blue</option>
+                        <option value = "5">Magenta</option>
+                        <option value = "6">Cyan</option>
+                        <option value = "7">White</option>
+                    </select>
+                    <div>
+                        <button id="undo" class="perform-render"> Undo </button>
+                        <button id="redo" class="perform-render"> Redo </button>
+                    </div>
+                    <div>
+                        <button id="save"> Save </button>
+                        <input type="button" id="load-file-xml" value="Load" onclick="document.getElementById('load-file').click();" />
+                        <input type="file" style="display:none;" id="load-file" name="file" accept=".json"/>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class = "child">
+        <div class = "canvas">
+            <canvas id="gl-canvas" width="720" height="720"></canvas>
+        </div>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript" src="webgl-utils.js"></script>
+<script type="text/javascript" src="initShaders.js"></script>
+<script type="text/javascript" src="MV.js"></script>
+<script type="text/javascript" src="main.js"></script>
+
+</html>
