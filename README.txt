@@ -1,3 +1,6 @@
+
+Demo it here: https://arkzenir.github.io/CS465-Web-Paint/
+
 Some notes on the useage of this program:
 
 The program has some keyboard inputs that are not represented on the UI, these are:
@@ -20,5 +23,3 @@ Selecting empty space clears all selections.
 
 To use: Simply run the index.html file
 Created by: Alper Sarı
-
-Demo it here: https://arkzenir.github.io/CS465-Web-Paint/
