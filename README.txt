@@ -20,3 +20,5 @@ Selecting empty space clears all selections.
 
 To use: Simply run the index.html file
 Created by: Alper Sarı
+
+Demo it here: https://arkzenir.github.io/CS465-Web-Paint/
